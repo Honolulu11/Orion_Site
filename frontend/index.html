@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Орион — Логистическая компания</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo">
+        <i class="fas fa-truck-moving logo__icon"></i>
+        <span class="logo__text">Орион</span>
+      </a>
+      <nav class="nav">
+        <ul class="nav__list">
+          <li><a href="index.html" class="nav__link nav__link--active">Главная</a></li>
+          <li><a href="services.html" class="nav__link">Услуги</a></li>
+          <li><a href="calculator.html" class="nav__link">Калькулятор</a></li>
+          <li><a href="contacts.html" class="nav__link">Контакты</a></li>
+        </ul>
+      </nav>
+      <div class="header__actions">
+  <a href="tel:+78005553535" class="header__phone">
+    <i class="fas fa-phone"></i> 8 (800) 555-35-35
+  </a>
+  
+  <!-- Кнопка входа (видна, если НЕ авторизован) -->
+  <a href="login.html" id="loginBtn" class="btn btn--outline" style="padding: 8px 20px; font-size: 14px;">Войти</a>
+  
+  <!-- Кнопка кабинета (видна, если авторизован) -->
+  <a href="dashboard.html" id="profileBtn" class="btn btn--outline" style="padding: 8px 20px; font-size: 14px; display: none;">Личный кабинет</a>
+  
+  <!-- Кнопка выхода (видна, если авторизован) -->
+  <button id="logoutBtn" class="btn btn--outline" style="padding: 8px 20px; font-size: 14px; display: none; background: transparent; border: none; color: #ffc107; cursor: pointer;">Выйти</button>
+    </div>
+</div>
+  </header>
+
+  <!-- Вертикальная дорога с фурой -->
+<div class="vertical-road">
+  <div id="road-truck" class="truck-vertical">
+    <i class="fas fa-truck-moving"></i>
+  </div>
+</div>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+  <!-- Фоновое изображение -->
+  <div class="hero__bg">
+    <img src="img/hero-bg.jpg" alt="Грузоперевозки Орион">
+  </div>
+  
+  <!-- Затемняющий оверлей -->
+  <div class="hero__overlay"></div>
+  
+  <!-- Контент -->
+  <div class="container hero__content">
+    <span class="hero__badge" data-aos="fade-down"> Транспортно-логистическая компания</span>
+    <h1 class="hero__title" data-aos="fade-up" data-aos-delay="100">
+      Логистика без границ<br>для вашего бизнеса
+    </h1>
+    <p class="hero__subtitle" data-aos="fade-up" data-aos-delay="200">
+      Грузоперевозки по России и СНГ с полной материальной ответственностью и страховкой до 5 млн ₽
+    </p>
+    <div class="hero__actions" data-aos="fade-up" data-aos-delay="300">
+      <a href="calculator.html" class="btn btn--primary">Рассчитать стоимость</a>
+      <a href="contacts.html" class="btn btn--outline">Связаться с нами</a>
+    </div>
+  </div>
+</section>
+
+    <!-- Преимущества -->
+    <section class="section features" data-aos="fade-up">
+      <div class="container">
+        <h2 class="section-title">Почему выбирают «Орион»</h2>
+        <div class="grid-4">
+          <div class="feature-card" data-aos="zoom-in" data-aos-delay="100">
+            <i class="fas fa-bolt feature-card__icon"></i>
+            <h4>Скорость</h4>
+            <p>Подача транспорта в день обращения. Доставка точно в срок 98% рейсов.</p>
+          </div>
+          <div class="feature-card" data-aos="zoom-in" data-aos-delay="200">
+            <i class="fas fa-shield-alt feature-card__icon"></i>
+            <h4>Надёжность</h4>
+            <p>Полная материальная ответственность. Страховка груза до 5 млн рублей.</p>
+          </div>
+          <div class="feature-card" data-aos="zoom-in" data-aos-delay="300">
+            <i class="fas fa-globe-europe feature-card__icon"></i>
+            <h4>География</h4>
+            <p>Работаем по всей РФ, Беларуси и Казахстану. Более 200 городов присутствия.</p>
+          </div>
+          <div class="feature-card" data-aos="zoom-in" data-aos-delay="400">
+            <i class="fas fa-headset feature-card__icon"></i>
+            <h4>Поддержка 24/7</h4>
+            <p>Персональный менеджер всегда на связи. Отслеживание груза онлайн.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Как мы работаем -->
+<section class="section steps" data-aos="fade-up">
+  <div class="container">
+    <h2 class="section-title">Как оформить заявку за 5 минут</h2>
+    <div class="grid-3">
+      <div class="step-card" data-aos="zoom-in" data-aos-delay="100">
+        <div class="step-card__number">01</div>
+        <h3>Оставьте заявку</h3>
+        <p>Заполните форму на сайте или позвоните нам. Менеджер уточнит детали за 2 минуты.</p>
+      </div>
+      <div class="step-card" data-aos="zoom-in" data-aos-delay="200">
+        <div class="step-card__number">02</div>
+        <h3>Получите расчёт</h3>
+        <p>Мы подберём оптимальный маршрут и транспорт. Стоимость фиксируется в договоре.</p>
+      </div>
+      <div class="step-card" data-aos="zoom-in" data-aos-delay="300">
+        <div class="step-card__number">03</div>
+        <h3>Доставим груз</h3>
+        <p>Заберём товар в указанное время. Вы отслеживаете статус в личном кабинете 24/7.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <!-- Колонка 1: О компании -->
+        <div class="footer__col">
+          <a href="index.html" class="logo footer__logo">
+            <i class="fas fa-truck-moving logo__icon"></i>
+            <span class="logo__text">Орион</span>
+          </a>
+          <p class="footer__desc">Транспортно-логистическая компания. Грузоперевозки по России и СНГ с полной материальной ответственностью.</p>
+        </div>
+
+        <!-- Колонка 2: Контакты -->
+        <div class="footer__col">
+          <h4>Контакты</h4>
+          <ul class="footer__list">
+            <li><i class="fas fa-map-marker-alt"></i> г. Москва, Волгоградский пр-т, д. 42, оф. 301</li>
+            <li><i class="fas fa-phone"></i> <a href="tel:+78005553535">8 (800) 555-35-35</a></li>
+            <li><i class="fas fa-envelope"></i> <a href="mailto:info@orion-logistic.ru">info@orion-logistic.ru</a></li>
+          </ul>
+        </div>
+
+        <!-- Колонка 3: Реквизиты -->
+        <div class="footer__col">
+          <h4>Реквизиты</h4>
+          <ul class="footer__list">
+            <li>ООО «Орион»</li>
+            <li>ИНН: 7701234567</li>
+            <li>ОГРН: 1234567890123</li>
+            <li>КПП: 770101001</li>
+          </ul>
+        </div>
+
+        <!-- Колонка 4: Документы -->
+        <div class="footer__col">
+          <h4>Документы</h4>
+          <ul class="footer__list">
+            <li><a href="#">Договор оферты</a></li>
+            <li><a href="#">Политика конфиденциальности</a></li>
+            <li><a href="#">Реквизиты компании</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>© 2026 ООО «Орион». Все права защищены.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>AOS.init({ duration: 800, once: true });</script>
+  <script src="js/auth.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Контакты — Орион</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Шапка -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo">
+        <i class="fas fa-truck-moving logo__icon"></i>
+        <span class="logo__text">Орион</span>
+      </a>
+      <nav class="nav">
+        <ul class="nav__list">
+          <li><a href="index.html" class="nav__link">Главная</a></li>
+          <li><a href="services.html" class="nav__link">Услуги</a></li>
+          <li><a href="calculator.html" class="nav__link">Калькулятор</a></li>
+          <li><a href="contacts.html" class="nav__link nav__link--active">Контакты</a></li>
+        </ul>
+      </nav>
+      <div class="header__actions">
+        <a href="tel:+78005553535" class="header__phone">
+          <i class="fas fa-phone"></i> 8 (800) 555-35-35
+        </a>
+        <a href="login.html" id="loginBtn" class="btn btn--outline" style="padding: 8px 20px; font-size: 14px;">Войти</a>
+        <a href="dashboard.html" id="profileBtn" class="btn btn--outline" style="padding: 8px 20px; font-size: 14px; display: none;">Личный кабинет</a>
+        <button id="logoutBtn" class="btn btn--outline" style="padding: 8px 20px; font-size: 14px; display: none; background: transparent; border: none; color: #ffc107; cursor: pointer;">Выйти</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Компактный заголовок -->
+    <section class="page-hero">
+      <div class="container">
+        <h1 data-aos="fade-up">Контакты</h1>
+        <p data-aos="fade-up" data-aos-delay="50">Свяжитесь с нами любым удобным способом</p>
+      </div>
+    </section>
+
+    <!-- Основная сетка: Инфо + Форма -->
+    <section class="section contacts-main">
+      <div class="container contacts-grid" data-aos="fade-up" data-aos-delay="100">
+        
+        <!-- Левая часть: 4 карточки в сетке 2x2 -->
+        <div class="contacts-info">
+          <div class="contact-card">
+            <i class="fas fa-phone-alt"></i>
+            <div>
+              <h4>Телефон</h4>
+              <a href="tel:+78005553535">8 (800) 555-35-35</a>
+              <span>Бесплатно по РФ</span>
+            </div>
+          </div>
+          <div class="contact-card">
+            <i class="fas fa-envelope"></i>
+            <div>
+              <h4>Email</h4>
+              <a href="mailto:info@orion-logistic.ru">info@orion-logistic.ru</a>
+              <span>Ответим в течение часа</span>
+            </div>
+          </div>
+          <div class="contact-card">
+            <i class="fas fa-map-marker-alt"></i>
+            <div>
+              <h4>Адрес офиса</h4>
+              <p>г. Москва, Волгоградский пр-т, д. 42, оф. 301</p>
+            </div>
+          </div>
+          <div class="contact-card">
+            <i class="fas fa-clock"></i>
+            <div>
+              <h4>Режим работы</h4>
+              <p>Пн-Пт: 09:00 - 18:00<br>Сб-Вс: выходной</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Правая часть: Форма -->
+        <div class="contacts-form-wrapper">
+          <h3>Напишите нам</h3>
+          <form class="contact-form" id="contactForm">
+            <div class="form-group">
+              <input type="text" placeholder="Ваше имя" required>
+            </div>
+            <div class="form-group">
+              <input type="tel" placeholder="Телефон" required>
+            </div>
+            <div class="form-group">
+              <input type="email" placeholder="Email">
+            </div>
+            <div class="form-group">
+              <textarea rows="4" placeholder="Ваше сообщение..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary btn--full">Отправить заявку</button>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Карта внизу на всю ширину -->
+    <section class="contacts-map-section" data-aos="fade-up">
+      <div class="container">
+        <h3 class="map-title">Мы на карте</h3>
+      </div>
+      <div class="map-container">
+        <!-- Яндекс Карта (Москва, центр) -->
+        <iframe src="https://yandex.ru/map-widget/v1/?ll=37.617635%2C55.755814&z=12" 
+                width="100%" height="450" frameborder="0" allowfullscreen="true" 
+                style="position:relative; display:block;">
+        </iframe>
+      </div>
+    </section>
+  </main>
+
+  <!-- Подвал -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__col">
+          <a href="index.html" class="logo footer__logo">
+            <i class="fas fa-truck-moving logo__icon"></i>
+            <span class="logo__text">Орион</span>
+          </a>
+          <p class="footer__desc">Транспортно-логистическая компания. Грузоперевозки по России и СНГ.</p>
+        </div>
+        <div class="footer__col">
+          <h4>Контакты</h4>
+          <ul class="footer__list">
+            <li><i class="fas fa-map-marker-alt"></i> г. Москва, Волгоградский пр-т, д. 42</li>
+            <li><i class="fas fa-phone"></i> <a href="tel:+78005553535">8 (800) 555-35-35</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Реквизиты</h4>
+          <ul class="footer__list">
+            <li>ООО «Орион»</li>
+            <li>ИНН: 7701234567</li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Документы</h4>
+          <ul class="footer__list">
+            <li><a href="#">Договор оферты</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2026 ООО «Орион». Все права защищены.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>AOS.init({ duration: 800, once: true });</script>
+  <script src="js/main.js"></script>
+</body>
+</html>

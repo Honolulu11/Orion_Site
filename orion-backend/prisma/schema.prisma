@@ -1,0 +1,126 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserType {
+  PRIVATE
+  BUSINESS
+}
+
+enum OrderStatus {
+  PENDING
+  CONFIRMED
+  IN_TRANSIT
+  DELIVERED
+  CANCELLED
+}
+
+model User {
+  id            Int          @id @default(autoincrement())
+  email         String       @unique
+  passwordHash  String
+  phone         String?
+  firstName     String?
+  lastName      String?
+  userType      UserType     @default(PRIVATE)
+  isVerified    Boolean      @default(false)
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+
+  company       Company?
+  orders        Order[]
+  addresses     Address[]
+  documents     Document[]
+
+  @@map("users")
+}
+
+model Company {
+  id              Int      @id @default(autoincrement())
+  userId          Int      @unique
+  user            User     @relation(fields: [userId], references: [id])
+  name            String
+  inn             String   @unique
+  kpp             String?
+  legalAddress    String
+  contactPerson   String
+  phone           String?
+  createdAt       DateTime @default(now())
+
+  @@map("companies")
+}
+
+model Address {
+  id          Int      @id @default(autoincrement())
+  userId      Int
+  user        User     @relation(fields: [userId], references: [id])
+  label       String?
+  city        String
+  address     String
+  postalCode  String?
+  isDefault   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+
+  @@map("addresses")
+}
+
+model Order {
+  id              Int          @id @default(autoincrement())
+  trackingNumber  String       @unique
+  userId          Int
+  user            User         @relation(fields: [userId], references: [id])
+  
+  fromCity        String
+  fromAddress     String
+  toCity          String
+  toAddress       String
+  
+  weight          Float
+  volume          Float?
+  cargoType       String
+  description     String?
+  
+  price           Float
+  currency        String       @default("RUB")
+  
+  status          OrderStatus  @default(PENDING)
+  
+  createdAt       DateTime     @default(now())
+  updatedAt       DateTime     @updatedAt
+
+  tracking        Tracking[]
+  documents       Document[]
+
+  @@map("orders")
+}
+
+model Tracking {
+  id          Int         @id @default(autoincrement())
+  orderId     Int
+  order       Order       @relation(fields: [orderId], references: [id])
+  status      OrderStatus
+  location    String
+  comment     String?
+  timestamp   DateTime    @default(now())
+
+  @@map("tracking")
+}
+
+model Document {
+  id          Int      @id @default(autoincrement())
+  userId      Int?
+  user        User?    @relation(fields: [userId], references: [id])
+  orderId     Int?
+  order       Order?   @relation(fields: [orderId], references: [id])
+  type        String
+  fileName    String
+  fileUrl     String
+  uploadedAt  DateTime @default(now())
+
+  @@map("documents")
+}

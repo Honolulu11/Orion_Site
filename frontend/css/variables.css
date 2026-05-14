@@ -1,0 +1,17 @@
+:root {
+  --primary: #1e2a3a;
+  --primary-light: #2c3e50;
+  --accent: #ffc107;
+  --accent-hover: #e0a800;
+  --bg: #f8f9fa;
+  --white: #ffffff;
+  --text: #333333;
+  --text-light: #666666;
+  --text-muted: #999999;
+  --shadow: 0 4px 20px rgba(0,0,0,0.08);
+  --shadow-hover: 0 8px 30px rgba(0,0,0,0.12);
+  --radius: 12px;
+  --radius-lg: 20px;
+  --transition: all 0.3s ease;
+  --container: 1200px;
+}

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Личный кабинет — Орион</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo">
+        <i class="fas fa-truck-moving logo__icon"></i>
+        <span class="logo__text">Орион</span>
+      </a>
+      <nav class="nav">
+        <ul class="nav__list">
+          <li><a href="index.html" class="nav__link">Главная</a></li>
+          <li><a href="services.html" class="nav__link">Услуги</a></li>
+          <li><a href="calculator.html" class="nav__link">Калькулятор</a></li>
+          <li><a href="contacts.html" class="nav__link">Контакты</a></li>
+        </ul>
+      </nav>
+      <div class="header__actions">
+  <a href="tel:+78005553535" class="header__phone">
+    <i class="fas fa-phone"></i> 8 (800) 555-35-35
+  </a>
+  
+  <!-- Кнопка входа (видна, если НЕ авторизован) -->
+  <a href="login.html" id="loginBtn" class="btn btn--outline" style="padding: 8px 20px; font-size: 14px;">Войти</a>
+  
+  <!-- Кнопка кабинета (видна, если авторизован) -->
+  <a href="dashboard.html" id="profileBtn" class="btn btn--outline" style="padding: 8px 20px; font-size: 14px; display: none;">Личный кабинет</a>
+  
+  <!-- Кнопка выхода (видна, если авторизован) -->
+  <button id="logoutBtn" class="btn btn--outline" style="padding: 8px 20px; font-size: 14px; display: none; background: transparent; border: none; color: #ffc107; cursor: pointer;">Выйти</button>
+</div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container dashboard">
+      <!-- Приветствие -->
+      <div class="dashboard__header" data-aos="fade-down">
+        <h1>Добро пожаловать, <span id="userName">Пользователь</span>! 👋</h1>
+        <p class="dashboard__subtitle">Управляйте своими заказами и отслеживайте доставку</p>
+      </div>
+
+      <!-- Статистика -->
+      <div class="dashboard__stats grid-3" data-aos="fade-up" data-aos-delay="100">
+        <div class="stat-card">
+          <div class="stat-card__icon">📦</div>
+          <div class="stat-card__value" id="totalOrders">0</div>
+          <div class="stat-card__label">Всего заказов</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__icon">🚚</div>
+          <div class="stat-card__value" id="activeOrders">0</div>
+          <div class="stat-card__label">Активных</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__icon">✅</div>
+          <div class="stat-card__value" id="deliveredOrders">0</div>
+          <div class="stat-card__label">Доставлено</div>
+        </div>
+      </div>
+
+      <!-- Кнопка создания заказа -->
+      <div class="dashboard__actions" data-aos="fade-up" data-aos-delay="200">
+        <a href="calculator.html" class="btn btn--primary">
+          <i class="fas fa-plus"></i> Создать новый заказ
+        </a>
+        <a href="index.html" class="btn btn--outline" style="border-color: var(--primary); color: var(--primary);">
+          <i class="fas fa-home"></i> На главную
+        </a>
+      </div>
+
+      <!-- Список заказов -->
+      <div class="dashboard__orders" data-aos="fade-up" data-aos-delay="300">
+        <h2>Мои заказы</h2>
+        <div id="ordersList" class="orders-list">
+          <!-- Здесь будут заказы из базы -->
+          <div class="orders-empty">
+            <i class="fas fa-box-open"></i>
+            <p>У вас пока нет заказов</p>
+            <a href="calculator.html" class="btn btn--primary" style="margin-top: 20px;">
+              Оформить первый заказ
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__col">
+          <a href="index.html" class="logo footer__logo">
+            <i class="fas fa-truck-moving logo__icon"></i>
+            <span class="logo__text">Орион</span>
+          </a>
+          <p class="footer__desc">Транспортно-логистическая компания. Грузоперевозки по России и СНГ.</p>
+        </div>
+        <div class="footer__col">
+          <h4>Контакты</h4>
+          <ul class="footer__list">
+            <li><i class="fas fa-map-marker-alt"></i> г. Москва, Волгоградский пр-т, д. 42</li>
+            <li><i class="fas fa-phone"></i> <a href="tel:+78005553535">8 (800) 555-35-35</a></li>
+            <li><i class="fas fa-envelope"></i> <a href="mailto:info@orion-logistic.ru">info@orion-logistic.ru</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Реквизиты</h4>
+          <ul class="footer__list">
+            <li>ООО «Орион»</li>
+            <li>ИНН: 7701234567</li>
+            <li>ОГРН: 1234567890123</li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Документы</h4>
+          <ul class="footer__list">
+            <li><a href="#">Договор оферты</a></li>
+            <li><a href="#">Политика конфиденциальности</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2026 ООО «Орион». Все права защищены.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>AOS.init({ duration: 800, once: true });</script>
+  <script src="js/dashboard.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

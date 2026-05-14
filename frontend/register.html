@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Регистрация — Орион</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo">
+        <i class="fas fa-truck-moving logo__icon"></i>
+        <span class="logo__text">Орион</span>
+      </a>
+      <nav class="nav">
+        <ul class="nav__list">
+          <li><a href="index.html" class="nav__link">Главная</a></li>
+          <li><a href="services.html" class="nav__link">Услуги</a></li>
+          <li><a href="calculator.html" class="nav__link">Калькулятор</a></li>
+          <li><a href="contacts.html" class="nav__link">Контакты</a></li>
+        </ul>
+      </nav>
+      <div class="header__actions">
+  <a href="tel:+78005553535" class="header__phone">
+    <i class="fas fa-phone"></i> 8 (800) 555-35-35
+  </a>
+  
+  <!-- Кнопка входа (видна, если НЕ авторизован) -->
+  <a href="login.html" id="loginBtn" class="btn btn--outline" style="padding: 8px 20px; font-size: 14px;">Войти</a>
+  
+  <!-- Кнопка кабинета (видна, если авторизован) -->
+  <a href="dashboard.html" id="profileBtn" class="btn btn--outline" style="padding: 8px 20px; font-size: 14px; display: none;">Личный кабинет</a>
+  
+  <!-- Кнопка выхода (видна, если авторизован) -->
+  <button id="logoutBtn" class="btn btn--outline" style="padding: 8px 20px; font-size: 14px; display: none; background: transparent; border: none; color: #ffc107; cursor: pointer;">Выйти</button>
+</div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container auth-container">
+      <div class="auth-card" data-aos="fade-up">
+        <h2>Создать аккаунт</h2>
+        <p class="auth-subtitle">Зарегистрируйтесь, чтобы управлять заказами</p>
+        <form id="registerForm" class="auth-form">
+          <div class="form-group">
+            <label for="firstName">Имя</label>
+            <input type="text" id="firstName" name="firstName" placeholder="Иван">
+          </div>
+          <div class="form-group">
+            <label for="lastName">Фамилия</label>
+            <input type="text" id="lastName" name="lastName" placeholder="Иванов">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="your@email.com">
+          </div>
+          <div class="form-group">
+            <label for="password">Пароль</label>
+            <input type="password" id="password" name="password" required placeholder="Минимум 6 символов">
+          </div>
+          <button type="submit" class="btn btn--primary btn--full">Зарегистрироваться</button>
+        </form>
+        <div class="auth-footer">
+          <p>Уже есть аккаунт? <a href="login.html">Войти</a></p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 ООО «Орион». Все права защищены.</p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>AOS.init({ duration: 800, once: true });</script>
+  <script src="js/auth.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
