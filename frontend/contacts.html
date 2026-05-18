@@ -48,40 +48,82 @@
     <section class="section contacts-main">
       <div class="container contacts-grid" data-aos="fade-up" data-aos-delay="100">
         
-        <!-- Левая часть: 4 карточки в сетке 2x2 -->
+                <!-- Левая часть: Инфо + Цифры -->
         <div class="contacts-info">
-          <div class="contact-card">
-            <i class="fas fa-phone-alt"></i>
-            <div>
-              <h4>Телефон</h4>
-              <a href="tel:+78005553535">8 (800) 555-35-35</a>
-              <span>Бесплатно по РФ</span>
+          
+          <!-- 1. Обертка для карточек (чтобы они остались сеткой 2x2) -->
+          <div class="contact-cards-grid">
+            <div class="contact-card">
+              <i class="fas fa-phone-alt"></i>
+              <div>
+                <h4>Телефон</h4>
+                <a href="tel:+78005553535">8 (800) 555-35-35</a>
+                <span>Бесплатно по РФ</span>
+              </div>
+            </div>
+            <div class="contact-card">
+              <i class="fas fa-envelope"></i>
+              <div>
+                <h4>Email</h4>
+                <a href="mailto:info@orion-logistic.ru">info@orion-logistic.ru</a>
+                <span>Ответим в течение часа</span>
+              </div>
+            </div>
+            <div class="contact-card">
+              <i class="fas fa-map-marker-alt"></i>
+              <div>
+                <h4>Адрес офиса</h4>
+                <p>г. Москва, Волгоградский пр-т, д. 42, оф. 301</p>
+              </div>
+            </div>
+            <div class="contact-card">
+              <i class="fas fa-clock"></i>
+              <div>
+                <h4>Режим работы</h4>
+                <p>Пн-Пт: 09:00 - 18:00<br>Сб-Вс: выходной</p>
+              </div>
             </div>
           </div>
-          <div class="contact-card">
-            <i class="fas fa-envelope"></i>
-            <div>
-              <h4>Email</h4>
-              <a href="mailto:info@orion-logistic.ru">info@orion-logistic.ru</a>
-              <span>Ответим в течение часа</span>
-            </div>
-          </div>
-          <div class="contact-card">
-            <i class="fas fa-map-marker-alt"></i>
-            <div>
-              <h4>Адрес офиса</h4>
-              <p>г. Москва, Волгоградский пр-т, д. 42, оф. 301</p>
-            </div>
-          </div>
-          <div class="contact-card">
-            <i class="fas fa-clock"></i>
-            <div>
-              <h4>Режим работы</h4>
-              <p>Пн-Пт: 09:00 - 18:00<br>Сб-Вс: выходной</p>
-            </div>
-          </div>
-        </div>
 
+          <!-- 2. Блок "В цифрах" (теперь он стоит под карточками) -->
+          <div class="company-facts">
+            <h3>Компания «Орион» в цифрах</h3>
+            <div class="facts-grid">
+              <div class="fact-item">
+                <div class="fact-icon"><i class="fas fa-calendar-alt"></i></div>
+                <div class="fact-value">2008</div>
+                <div class="fact-label">Год основания</div>
+              </div>
+              <div class="fact-item">
+                <div class="fact-icon"><i class="fas fa-truck"></i></div>
+                <div class="fact-value">40+</div>
+                <div class="fact-label">Единиц транспорта</div>
+              </div>
+              <div class="fact-item">
+                <div class="fact-icon"><i class="fas fa-route"></i></div>
+                <div class="fact-value">12 000 км</div>
+                <div class="fact-label">Самый длинный рейс</div>
+              </div>
+              <div class="fact-item">
+                <div class="fact-icon"><i class="fas fa-ruble-sign"></i></div>
+                <div class="fact-value">50 млн ₽</div>
+                <div class="fact-label">Самый ценный груз</div>
+              </div>
+              <div class="fact-item">
+                <div class="fact-icon"><i class="fas fa-wrench"></i></div>
+                <div class="fact-value">24/7</div>
+                <div class="fact-label">Сервисный центр</div>
+              </div>
+              <div class="fact-item">
+                <div class="fact-icon"><i class="fas fa-users"></i></div>
+                <div class="fact-value">5000+</div>
+                <div class="fact-label">Довольных клиентов</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        
         <!-- Правая часть: Форма -->
         <div class="contacts-form-wrapper">
           <h3>Напишите нам</h3>
