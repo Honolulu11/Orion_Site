@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Услуги — Орион</title>
+  <!-- Подключаем основные стили -->
+  <link rel="stylesheet" href="css/base.css">
+  <!-- Подключаем стили ТОЛЬКО для этой страницы -->
+  <link rel="stylesheet" href="css/services.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Шапка (копируем из index) -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo">
+        <i class="fas fa-truck-moving logo__icon"></i>
+        <span class="logo__text">Орион</span>
+      </a>
+      <nav class="nav">
+        <ul class="nav__list">
+          <li><a href="index.html" class="nav__link">Главная</a></li>
+          <li><a href="services.html" class="nav__link nav__link--active">Услуги</a></li>
+          <li><a href="calculator.html" class="nav__link">Калькулятор</a></li>
+          <li><a href="contacts.html" class="nav__link">Контакты</a></li>
+        </ul>
+      </nav>
+      <div class="header__actions">
+        <a href="login.html" class="btn btn--outline" style="padding: 8px 20px; font-size: 14px;">Войти</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="services-hero">
+    <div class="container">
+      <h1 data-aos="fade-up">Наши услуги</h1>
+      <p data-aos="fade-up" data-aos-delay="100">Полный спектр логистических решений для вашего бизнеса</p>
+    </div>
+  </section>
+
+  <!-- БЛОК 1: Автопарк (С Hover-эффектом) -->
+  <section class="fleet-section">
+    <div class="container">
+      <h2 class="section-title">Наш автопарк</h2>
+      <div class="fleet-grid">
+
+        <!-- Карточка 1: Тент -->
+        <article class="fleet-card" data-aos="fade-up">
+          <img src="img/cargo-truck.png" alt="Тентованная фура" class="fleet-card__img">
+          <div class="fleet-card__title">Тентованный полуприцеп</div>
+          <div class="fleet-card__info">
+            <h3>Еврофура 20 тонн</h3>
+            <ul>
+              <li><i class="fas fa-weight-hanging"></i> До 20 тонн</li>
+              <li><i class="fas fa-cube"></i> 82–92 м³ объема</li>
+              <li><i class="fas fa-ruler"></i> 13.6 м длина</li>
+              <li><i class="fas fa-door-open"></i> Боковая/верхняя загрузка</li>
+            </ul>
+            <p>Идеально для генеральных грузов, паллетированных товаров и оборудования.</p>
+          </div>
+        </article>
+
+        <!-- Карточка 2: Рефрижератор -->
+        <article class="fleet-card" data-aos="fade-up" data-aos-delay="100">
+          <img src="img/ref.png" alt="Рефрижератор" class="fleet-card__img">
+          <div class="fleet-card__title">Рефрижератор</div>
+          <div class="fleet-card__info">
+            <h3>Температурный режим</h3>
+            <ul>
+              <li><i class="fas fa-thermometer-half"></i> от -20°C до +12°C</li>
+              <li><i class="fas fa-weight-hanging"></i> До 20 тонн</li>
+              <li><i class="fas fa-stopwatch"></i> Контроль 24/7</li>
+            </ul>
+            <p>Для перевозки продуктов питания, медикаментов и цветов.</p>
+          </div>
+        </article>
+
+        <!-- Карточка 3: Платформа -->
+        <article class="fleet-card" data-aos="fade-up" data-aos-delay="200">
+          <img src="img/open-platform.png" alt="Платформа" class="fleet-card__img">
+          <div class="fleet-card__title">Открытая платформа</div>
+          <div class="fleet-card__info">
+            <h3>Для негабарита</h3>
+            <ul>
+              <li><i class="fas fa-truck-loading"></i> Строительная техника</li>
+              <li><i class="fas fa-boxes"></i> Контейнеры 20/40 футов</li>
+              <li><i class="fas fa-shield-alt"></i> Фиксация грузов</li>
+            </ul>
+            <p>Перевозка тяжелой техники, стройматериалов и металлоконструкций.</p>
+          </div>
+        </article>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- БЛОК 2: Ремонт техники -->
+  <section class="repair-section">
+    <div class="container" style="display: flex; flex-wrap: wrap; align-items: center; gap: 40px;">
+      <div class="repair-content" data-aos="fade-right">
+        <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Собственный сервисный центр</h2>
+        <p style="font-size: 1.1rem; line-height: 1.6; color: var(--text-light);">
+          Мы не только перевозим, но и обслуживаем технику. Наш сервисный центр оснащен современным диагностическим оборудованием. Мы выполняем ТО любой сложности, ремонт двигателей, ходовой части и электрики.
+        </p>
+        <div class="repair-address">
+          <strong><i class="fas fa-map-marker-alt" style="color:var(--accent)"></i> Адрес базы:</strong><br>
+          г. Москва, промзона "Орион", стр. 5<br>
+          <small>Работаем: Пн-Вс с 08:00 до 22:00</small>
+        </div>
+      </div>
+      <div class="repair-image" data-aos="fade-left">
+        <img src="img/truck-repair.jpg" alt="Ремонт грузовиков">
+      </div>
+    </div>
+  </section>
+
+  <!-- Подвал (копируем из index) -->
+  <footer class="footer">
+    <div class="container" style="padding: 40px 20px; text-align: center; color: #fff;">
+      <p>© 2026 ООО «Орион». Все права защищены.</p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>AOS.init({ duration: 800, once: true });</script>
+</body>
+</html>
