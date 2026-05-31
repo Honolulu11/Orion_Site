@@ -6,21 +6,15 @@ const prisma = new PrismaClient();
 // Регистрация
 exports.register = async (req, res, next) => {
   try {
-    const { email, password, phone, firstName, lastName, userType = 'PRIVATE' } = req.body;
+    const { email, password, phone, firstName, lastName, userType = 'PRIVATE', company } = req.body;
 
-    // Проверка существующего пользователя
-    const existing = await prisma.user.findUnique({ 
-      where: { email } 
-    });
-    
+    const existing = await prisma.user.findUnique({ where: { email } });
     if (existing) {
       return res.status(400).json({ error: 'Email уже зарегистрирован' });
     }
 
-    // Хэширование пароля
     const passwordHash = await bcrypt.hash(password, 10);
 
-    // Создание пользователя
     const user = await prisma.user.create({
       data: {
         email,
@@ -28,19 +22,23 @@ exports.register = async (req, res, next) => {
         phone,
         firstName,
         lastName,
-        userType
+        userType,
+        // Вложенное создание компании, если тип BUSINESS
+        ...(userType === 'BUSINESS' && company && {
+          company: {
+            create: {
+              name: company.name,
+              inn: company.inn,
+              kpp: company.kpp,
+              legalAddress: company.legalAddress,
+              contactPerson: company.contactPerson
+            }
+          }
+        })
       },
-      select: {
-        id: true,
-        email: true,
-        userType: true,
-        firstName: true,
-        lastName: true,
-        createdAt: true
-      }
+      include: { company: true } // <-- Обязательно включаем company в ответ
     });
 
-    // Генерация токена
     const token = generateToken(user.id);
 
     res.status(201).json({

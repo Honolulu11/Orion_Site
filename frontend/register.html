@@ -5,81 +5,156 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Регистрация — Орион</title>
   <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .user-type-toggle {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .toggle-option {
+      padding: 14px;
+      border: 2px solid #e2e8f0;
+      border-radius: 10px;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.3s ease;
+      background: var(--white);
+    }
+    .toggle-option:hover {
+      border-color: var(--accent);
+    }
+    .toggle-option.active {
+      border-color: var(--accent);
+      background: rgba(255, 193, 7, 0.1);
+    }
+    .toggle-option input {
+      display: none;
+    }
+    .toggle-option .icon {
+      font-size: 1.5rem;
+      margin-bottom: 6px;
+      display: block;
+    }
+    .business-fields {
+      background: #f8fafc;
+      padding: 20px;
+      border-radius: 10px;
+      border-left: 4px solid var(--accent);
+      margin: 20px 0;
+      display: none;
+    }
+    .business-fields.show {
+      display: block;
+      animation: slideDown 0.3s ease;
+    }
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+  </style>
 </head>
 <body>
-  <header class="header">
-    <div class="container header__inner">
-      <a href="index.html" class="logo">
-        <i class="fas fa-truck-moving logo__icon"></i>
-        <span class="logo__text">Орион</span>
-      </a>
-      <nav class="nav">
-        <ul class="nav__list">
-          <li><a href="index.html" class="nav__link">Главная</a></li>
-          <li><a href="services.html" class="nav__link">Услуги</a></li>
-          <li><a href="calculator.html" class="nav__link">Калькулятор</a></li>
-          <li><a href="contacts.html" class="nav__link">Контакты</a></li>
-        </ul>
-      </nav>
-      <div class="header__actions">
-  <a href="tel:+78005553535" class="header__phone">
-    <i class="fas fa-phone"></i> 8 (800) 555-35-35
-  </a>
-  
-  <!-- Кнопка входа (видна, если НЕ авторизован) -->
-  <a href="login.html" id="loginBtn" class="btn btn--outline" style="padding: 8px 20px; font-size: 14px;">Войти</a>
-  
-  <!-- Кнопка кабинета (видна, если авторизован) -->
-  <a href="dashboard.html" id="profileBtn" class="btn btn--outline" style="padding: 8px 20px; font-size: 14px; display: none;">Личный кабинет</a>
-  
-  <!-- Кнопка выхода (видна, если авторизован) -->
-  <button id="logoutBtn" class="btn btn--outline" style="padding: 8px 20px; font-size: 14px; display: none; background: transparent; border: none; color: #ffc107; cursor: pointer;">Выйти</button>
-</div>
-    </div>
-  </header>
+  <div class="container" style="max-width: 480px; padding: 40px 20px;">
+    <div class="card" style="padding: 32px; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.08);">
+      <h2 style="text-align: center; margin-bottom: 8px;">Создать аккаунт</h2>
+      <p style="text-align: center; color: var(--text-light); margin-bottom: 24px;">Выберите тип регистрации</p>
 
-  <main>
-    <div class="container auth-container">
-      <div class="auth-card" data-aos="fade-up">
-        <h2>Создать аккаунт</h2>
-        <p class="auth-subtitle">Зарегистрируйтесь, чтобы управлять заказами</p>
-        <form id="registerForm" class="auth-form">
-          <div class="form-group">
-            <label for="firstName">Имя</label>
-            <input type="text" id="firstName" name="firstName" placeholder="Иван">
-          </div>
-          <div class="form-group">
-            <label for="lastName">Фамилия</label>
-            <input type="text" id="lastName" name="lastName" placeholder="Иванов">
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required placeholder="your@email.com">
-          </div>
-          <div class="form-group">
-            <label for="password">Пароль</label>
-            <input type="password" id="password" name="password" required placeholder="Минимум 6 символов">
-          </div>
-          <button type="submit" class="btn btn--primary btn--full">Зарегистрироваться</button>
-        </form>
-        <div class="auth-footer">
-          <p>Уже есть аккаунт? <a href="login.html">Войти</a></p>
+      <form id="registerForm">
+        <!-- Переключатель типа -->
+        <div class="user-type-toggle">
+          <label class="toggle-option active" data-type="PRIVATE">
+            <input type="radio" name="userType" value="PRIVATE" checked>
+            <span class="icon">👤</span>
+            <span>Физ. лицо</span>
+          </label>
+          <label class="toggle-option" data-type="BUSINESS">
+            <input type="radio" name="userType" value="BUSINESS">
+            <span class="icon">🏢</span>
+            <span>Юр. лицо</span>
+          </label>
         </div>
-      </div>
-    </div>
-  </main>
 
-  <footer class="footer">
-    <div class="container">
-      <p>© 2026 ООО «Орион». Все права защищены.</p>
-    </div>
-  </footer>
+        <!-- Общие поля -->
+        <div class="form-group">
+          <input type="text" id="firstName" placeholder="Имя" required>
+        </div>
+        <div class="form-group">
+          <input type="text" id="lastName" placeholder="Фамилия" required>
+        </div>
+        <div class="form-group">
+          <input type="email" id="email" placeholder="Email" required>
+        </div>
+        <div class="form-group">
+          <input type="password" id="password" placeholder="Пароль" required minlength="6">
+        </div>
+        <div class="form-group">
+          <input type="tel" id="phone" placeholder="Телефон">
+        </div>
 
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script>AOS.init({ duration: 800, once: true });</script>
+        <!-- Поля для юр.лица -->
+        <div id="businessFields" class="business-fields">
+          <h4 style="margin: 0 0 16px; color: var(--primary);">
+            <i class="fas fa-building"></i> Реквизиты организации
+          </h4>
+          <div class="form-group">
+            <input type="text" id="companyName" placeholder="Название компании">
+          </div>
+          <div class="form-row">
+            <input type="text" id="inn" placeholder="ИНН">
+            <input type="text" id="kpp" placeholder="КПП">
+          </div>
+          <div class="form-group">
+            <textarea id="legalAddress" rows="2" placeholder="Юридический адрес"></textarea>
+          </div>
+          <div class="form-group">
+            <input type="text" id="contactPerson" placeholder="Контактное лицо">
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn--primary btn--full" style="margin-top: 20px;">
+          Зарегистрироваться
+        </button>
+      </form>
+
+      <p style="text-align: center; margin-top: 20px; font-size: 14px; color: var(--text-light);">
+        Уже есть аккаунт? <a href="login.html" style="color: var(--accent); font-weight: 600;">Войти</a>
+      </p>
+    </div>
+  </div>
+
+  <script>
+    // Переключение типа пользователя
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggles = document.querySelectorAll('.toggle-option');
+      const businessFields = document.getElementById('businessFields');
+      
+      toggles.forEach(option => {
+        option.addEventListener('click', () => {
+          // Убираем активный класс со всех
+          toggles.forEach(t => t.classList.remove('active'));
+          // Добавляем нажатому
+          option.classList.add('active');
+          // Устанавливаем radio
+          const radio = option.querySelector('input');
+          radio.checked = true;
+          
+          // Показываем/скрываем поля для юр.лица
+          if (radio.value === 'BUSINESS') {
+            businessFields.classList.add('show');
+          } else {
+            businessFields.classList.remove('show');
+          }
+        });
+      });
+    });
+  </script>
   <script src="js/auth.js"></script>
-  <script src="js/main.js"></script>
 </body>
 </html>

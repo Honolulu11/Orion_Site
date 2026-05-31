@@ -41,12 +41,10 @@
   </header>
 
   <main>
-    <div class="container dashboard">
-      <!-- Приветствие -->
-      <div class="dashboard__header" data-aos="fade-down">
-        <h1>Добро пожаловать, <span id="userName">Пользователь</span>! 👋</h1>
-        <p class="dashboard__subtitle">Управляйте своими заказами и отслеживайте доставку</p>
-      </div>
+    <div class="welcome-block" style="text-align: center; margin-bottom: 32px;">
+  <h1 id="welcome-text" style="font-size: 2rem; margin-bottom: 8px;">Добро пожаловать!</h1>
+  <div id="user-badge" style="display: inline-block; padding: 6px 14px; border-radius: 20px; font-size: 14px; font-weight: 600;"></div>
+</div>
 
       <!-- Статистика -->
       <div class="dashboard__stats grid-3" data-aos="fade-up" data-aos-delay="100">
@@ -93,6 +91,45 @@
       </div>
     </div>
   </main>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      window.location.href = 'login.html';
+      return;
+    }
+
+    const user = JSON.parse(localStorage.getItem('user') || '{}');
+    const welcomeText = document.getElementById('welcome-text');
+    const userBadge = document.getElementById('user-badge');
+
+    if (user.firstName) {
+      welcomeText.innerHTML = `Добро пожаловать, <span style="color: var(--accent);">${user.firstName}</span>! 👋`;
+    } else {
+      welcomeText.textContent = 'Добро пожаловать! 👋';
+    }
+
+    if (user.userType === 'BUSINESS' && user.company) {
+      userBadge.textContent = `🏢 ${user.company.name}`;
+      userBadge.style.background = '#fff3cd';
+      userBadge.style.color = '#856404';
+    } else {
+      userBadge.textContent = '👤 Физическое лицо';
+      userBadge.style.background = '#d1fae5';
+      userBadge.style.color = '#065f46';
+    }
+
+    // Кнопка выхода
+    const logoutBtn = document.getElementById('logoutBtn');
+    if (logoutBtn) {
+      logoutBtn.addEventListener('click', () => {
+        localStorage.clear();
+        window.location.href = 'index.html';
+      });
+    }
+  });
+</script>
 
   <footer class="footer">
     <div class="container">
